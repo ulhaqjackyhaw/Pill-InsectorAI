@@ -1,0 +1,6 @@
+path: D:/TUBES AI/pill-inspector/datasets/
+train: D:/TUBES AI/pill-inspector/datasets/images/train
+val: D:/TUBES AI/pill-inspector/datasets/images/val
+
+nc: 1  # number of classes
+names: ['pill']  # class names

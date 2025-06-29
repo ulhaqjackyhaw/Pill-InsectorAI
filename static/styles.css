@@ -1,0 +1,86 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Styling untuk tab aktif */
+.tab-btn {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    color: #64748b; /* text-slate-500 */
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.tab-btn:hover {
+    background-color: #f1f5f9; /* bg-slate-100 */
+    color: #334155; /* text-slate-700 */
+}
+
+.tab-btn.active {
+    border-bottom-color: #8b5cf6; /* border-violet-500 */
+    color: #6d28d9; /* text-violet-700 */
+    font-weight: 600;
+}
+
+/* Animasi Spinner */
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #d1d5db; /* border-gray-300 */
+    border-bottom-color: #8b5cf6; /* border-violet-500 */
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Styling untuk Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1f5f9; /* bg-slate-100 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Efek Transisi Fade-out dan Fade-in */
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    animation: fadeInAnimation 0.5s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
