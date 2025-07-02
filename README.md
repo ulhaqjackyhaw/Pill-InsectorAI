@@ -1,40 +1,44 @@
+
 # Pill Inspector
-Uses computer vision to analyse images of pills
+Menggunakan computer vision untuk menganalisis gambar obat (pil/kapsul)
 
 ![Demo](https://github.com/ulhaqjackyhaw/Pill-InsectorAI/blob/main/demo/test.png?raw=true)
 
-This Python script uses YOLOv8 and OpenCV to detect and count objects in images. 
+Script Python ini menggunakan YOLOv8 dan OpenCV untuk mendeteksi dan menghitung objek pada gambar.
 
-Mainly used by nurses and pharmacists to automatically count how many count pills with their camera
-###FITUR 1
+Utamanya digunakan oleh perawat dan apoteker untuk menghitung jumlah pil secara otomatis menggunakan kamera.
+
+## FITUR 1
+Deteksi & Hitung Pil Otomatis
+
 [![Demo Video](https://img.youtube.com/vi/UUzrEuUZKno/0.jpg)](https://www.youtube.com/watch?v=UUzrEuUZKno)
 
-## Training the model (optional)
+## Melatih Model (Opsional)
 
 https://github.com/user-attachments/assets/c22e8bd9-7867-4157-8bfb-420e0bc4b2e6
 
-Place training images in data/images/train/
+Letakkan gambar pelatihan di `data/images/train/`
 
-Place training labels (text files) in data/labels/train/
+Letakkan label pelatihan (file .txt) di `data/labels/train/`
 
-Place testing images in data/images/val/
+Letakkan gambar validasi di `data/images/val/`
 
-Place testing labels (text files) in data/labels/val/
+Letakkan label validasi di `data/labels/val/`
 
-Ideally have a 4:1 ratio (4 times more images in training than validation)
+Idealnya rasio data train:val = 4:1 (4x lebih banyak gambar pelatihan)
 
-I used Label Studio running on Docker to perform image tagging
+Saya menggunakan Label Studio (Docker) untuk melakukan penandaan gambar
 
-### Create a data.yaml file (optional)
+### Contoh data.yaml (Opsional)
 
 ```
-path: path/to/pill-inspector/data  # replace with absolute path
+path: path/to/pill-inspector/data  # ganti dengan path absolut
 train: images/train
 val: images/val
-nc: 1  # number of classes
-names: ['pill']  # class names
+nc: 1  # jumlah kelas
+names: ['pill']  # nama kelas
 ```
-### Create a train.py file and then run it:
+### Contoh train.py lalu jalankan:
 ```
 from ultralytics import YOLO
 model = YOLO('yolov8n.pt')
@@ -46,70 +50,67 @@ results = model.train(
     name='pill_inspector'
 )
 ```
-### Run the model
+### Menjalankan model
 python3 train.py
-This will create a model that we can use
+Ini akan menghasilkan model yang bisa digunakan
 model = YOLO('runs/detect/pill_inspector/weights/best.pt')
 
-Place this into models folder
+Tempatkan file model ke folder `models`
 
-## Prerequisites
+## Prasyarat
 
-- Python 3.8 or higher
+- Python 3.8 atau lebih baru
 - pip (Python package installer)
 
-## Installation
+## Instalasi
 
-1. Clone or download this repository to your local machine.
+1. Clone atau unduh repository ini ke komputer Anda.
 
-2. Install the required Python packages:
+2. Install package Python yang dibutuhkan:
 ```bash
 pip install ultralytics opencv-python numpy
 ```
 
-## Usage
-Run kivy script (Windows/Linux/macOS):
+## Penggunaan
+Jalankan script Kivy (Windows/Linux/macOS):
 
-Run the flask script:
+Jalankan script Flask:
 ```bash
 python3 kivy_app.py
 ```
 
-
-Run the flask script:
+Atau jalankan script Flask:
 ```bash
 python3 app.py
 ```
-Navigate to http://127.0.0.1:5003/ if running on local machine
+Lalu buka http://127.0.0.1:5003/ jika dijalankan secara lokal
 
-## Building the docker file
+## Build Docker
 ```bash
 git clone https://github.com/ulhaqjackyhaw/Pill-InsectorAI.git
 ```
 
-This will create a pill-inspector folder with this git repository contents
+Ini akan membuat folder pill-inspector berisi isi repository ini
 
-Change diretory into this folder and run in docker (needs sudo privileges):
+Masuk ke folder tersebut dan build docker (butuh sudo):
 
 ```bash
 sudo docker build -t pill-inspector:latest . 
 ```
 
-This will create an image that we can then use.
+Ini akan membuat image yang bisa digunakan.
 
-We can then use docker-compose to run a container based on the image or we can
+Bisa dijalankan dengan docker-compose atau digabung dengan NGINX agar bisa HTTPS (perlu untuk akses kamera)
 
-incorporate it with NGINX to have it running over HTTPS (needed for camera access)
+Untuk menjalankan dengan NGINX, tambahkan ke docker-compose nginx:
 
-To run it with NGINX, add the following to your nginx docker-compose script:
-
-Add to nginx yaml:
+Tambahkan ke yaml nginx:
 ```
     networks:
       - app_network
 ```
 
-Add to the end of the nginx yaml:
+Tambahkan di akhir yaml nginx:
 ```
   flask_app:
     image: pill-inspector:latest
@@ -129,16 +130,16 @@ networks:
     driver: bridge
 ```
 
-Redeploy your nginx instance and it will use the pill-inspector image we created earlier and rebuild it to work with nginx
+Redeploy nginx Anda agar menggunakan image pill-inspector yang sudah dibuat
 
-You will also need to edit your nginx configuration to have:
+Edit juga konfigurasi nginx Anda:
 
 ```
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
 
-    server_name pill-inspector.yourdomain.com;
+    server_name pill-inspector.domainanda.com;
 
     include /config/nginx/ssl.conf;
 
@@ -154,23 +155,25 @@ server {
 }
 ```
 
-We need SSL to work with our flask app to have camera access
+SSL diperlukan agar flask app bisa akses kamera
 
-Also add port 5003 to your port forwarding / ingress network rules 
+Jangan lupa buka port 5003 di firewall/port forwarding
 
-Otherwise the flask app will only work locally 
+Jika tidak, flask app hanya bisa diakses lokal
 
-## Important Notes
+## Catatan Penting
 
-- The script uses YOLOv8n (nano) model which will be downloaded automatically on first run
-- Default confidence threshold is set to 0.5
-- Most actual pills will have a CI of 0.75 or greater
+- Script menggunakan model YOLOv8n (nano) yang akan otomatis diunduh saat pertama kali dijalankan
+- Confidence threshold default 0.5
+- Kebanyakan pil asli akan punya CI >= 0.75
 
 ## Troubleshooting
 
-1. If you get module import errors:
-   - Make sure you've installed all required packages using pip
+1. Jika ada error import modul:
+   - Pastikan semua package sudah diinstall dengan pip
 
 ## FITUR 2
-[![Demo Video](https://img.https://youtu.be/Vpcpp57HaKo.jpg)](https://www.youtube.com/watch?v=Vpcpp57HaKo)
+Deteksi Objek Secara Umum
+
+[![Demo Video](https://img.youtube.com/vi/Vpcpp57HaKo/0.jpg)](https://www.youtube.com/watch?v=Vpcpp57HaKo)
 
