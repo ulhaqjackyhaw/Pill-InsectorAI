@@ -5,8 +5,8 @@ Uses computer vision to analyse images of pills
 
 This Python script uses YOLOv8 and OpenCV to detect and count objects in images. 
 
-Mainly used by nurses and pharmacists to automatically count how many count pills with their camera on their smartphone
-
+Mainly used by nurses and pharmacists to automatically count how many count pills with their camera
+###FITUR 1
 [![Demo Video](https://img.youtube.com/vi/UUzrEuUZKno/0.jpg)](https://www.youtube.com/watch?v=UUzrEuUZKno)
 
 ## Training the model (optional)
@@ -171,6 +171,6 @@ Otherwise the flask app will only work locally
 1. If you get module import errors:
    - Make sure you've installed all required packages using pip
 
-## Earlier Builds
+## FITUR 2
+[![Demo Video](https://img.https://youtu.be/Vpcpp57HaKo.jpg)](https://www.youtube.com/watch?v=Vpcpp57HaKo)
 
-https://github.com/user-attachments/assets/9cc0e65b-e74e-48a7-a3c6-ee7aed79064a
