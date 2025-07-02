@@ -7,7 +7,7 @@ This Python script uses YOLOv8 and OpenCV to detect and count objects in images.
 
 Mainly used by nurses and pharmacists to automatically count how many count pills with their camera on their smartphone
 
-https://github.com/user-attachments/assets/b7bb9bf3-155a-4227-90d1-eec455649747
+![Demo](https://github.com/ulhaqjackyhaw/Pill-InsectorAI/blob/main/demo/training_model.mp4?raw=true)
 
 ## Training the model (optional)
 
