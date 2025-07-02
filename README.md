@@ -1,6 +1,8 @@
 
 # Pill Inspector
-Menggunakan computer vision untuk menganalisis gambar obat (pil/kapsul)
+Pill Inspector adalah aplikasi berbasis web yang dirancang untuk secara otomatis mendeteksi dan menghitung jumlah pil pada sebuah gambar. Dengan memanfaatkan teknologi AI terkini, aplikasi ini bertujuan untuk mempermudah proses inspeksi dan penghitungan pil yang seringkali memakan waktu dan rentan kesalahan jika dilakukan secara manual.
+
+Selain kemampuan deteksi dan penghitungan pil, Pill Inspector juga dilengkapi dengan fitur deteksi gambar secara umum (general image detection). Fitur ini memungkinkan pengguna untuk mengunggah gambar apa pun dan memperoleh identifikasi objek-objek yang terdeteksi di dalamnya, seperti manusia, meja, laptop, dan lainnya. Dengan demikian, aplikasi ini tidak hanya terbatas pada inspeksi farmasi, tetapi juga dapat digunakan untuk berbagai kebutuhan pengenalan objek berbasis gambar secara luas
 
 ![Demo](https://github.com/ulhaqjackyhaw/Pill-InsectorAI/blob/main/demo/test.png?raw=true)
 
@@ -9,9 +11,18 @@ Script Python ini menggunakan YOLOv8 dan OpenCV untuk mendeteksi dan menghitung 
 Utamanya digunakan oleh perawat dan apoteker untuk menghitung jumlah pil secara otomatis menggunakan kamera.
 
 ## FITUR 1
+# watch on youtue
 Deteksi & Hitung Pil Otomatis
 
 [![Demo Video](https://img.youtube.com/vi/UUzrEuUZKno/0.jpg)](https://www.youtube.com/watch?v=UUzrEuUZKno)
+
+
+## FITUR 2
+# watch on youtue
+Deteksi Objek Secara Umum
+
+[![Demo Video](https://img.youtube.com/vi/Vpcpp57HaKo/0.jpg)](https://www.youtube.com/watch?v=Vpcpp57HaKo)
+
 
 ## Melatih Model (Opsional)
 
@@ -172,8 +183,5 @@ Jika tidak, flask app hanya bisa diakses lokal
 1. Jika ada error import modul:
    - Pastikan semua package sudah diinstall dengan pip
 
-## FITUR 2
-Deteksi Objek Secara Umum
 
-[![Demo Video](https://img.youtube.com/vi/Vpcpp57HaKo/0.jpg)](https://www.youtube.com/watch?v=Vpcpp57HaKo)
 
