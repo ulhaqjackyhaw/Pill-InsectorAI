@@ -1,7 +1,7 @@
 # Pill Inspector
 Uses computer vision to analyse images of pills
 
-(https://github.com/ulhaqjackyhaw/Pill-InsectorAI/blob/main/demo/test.png?raw=true)
+![Demo](https://github.com/ulhaqjackyhaw/Pill-InsectorAI/blob/main/demo/test.png?raw=true)
 
 This Python script uses YOLOv8 and OpenCV to detect and count objects in images. 
 
