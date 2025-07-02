@@ -11,15 +11,13 @@ Script Python ini menggunakan YOLOv8 dan OpenCV untuk mendeteksi dan menghitung 
 Utamanya digunakan oleh perawat dan apoteker untuk menghitung jumlah pil secara otomatis menggunakan kamera.
 
 ## FITUR 1
-# watch on youtue
-Deteksi & Hitung Pil Otomatis
+Deteksi & Hitung Pil Otomatis, klik gambar untuk lihat demo
 
 [![Demo Video](https://img.youtube.com/vi/UUzrEuUZKno/0.jpg)](https://www.youtube.com/watch?v=UUzrEuUZKno)
 
 
 ## FITUR 2
-# watch on youtue
-Deteksi Objek Secara Umum
+Deteksi Objek Secara Umum, klik gambar untuk lihat demo
 
 [![Demo Video](https://img.youtube.com/vi/Vpcpp57HaKo/0.jpg)](https://www.youtube.com/watch?v=Vpcpp57HaKo)
 
